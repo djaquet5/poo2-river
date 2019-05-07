@@ -9,12 +9,12 @@
 
 class Person {
 private:
-    std::string name;
+    const std::string name; // const ?
 
 public:
-    Person(std::string name);
+    Person(std::string& name); // ref or value ?
 
-    std::string getName() const;
+    const std::string& getName() const; // const string ?
 
     virtual bool canDrive() const = 0;
 
