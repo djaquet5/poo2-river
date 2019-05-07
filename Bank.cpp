@@ -3,3 +3,5 @@
 //
 
 #include "Bank.hpp"
+
+Bank::Bank(std::string name) : Container(name) {}

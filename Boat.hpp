@@ -10,15 +10,15 @@
 
 class Boat : public Container {
 private:
-    Bank& currentBank;
+    Bank* currentBank;
 public:
-    Boat(std::string name);
+    Boat(Bank* currentBank);
 
-    bool add(Person* person);
+    bool add(Person* person) override;
 
-    Bank& getBank() const; // const ??
+    Bank* getBank() const; // const ??
 
-    void move(Bank& bank);
+    void move(Bank* bank);
 };
 
 

@@ -29,3 +29,7 @@ bool Container::contains(Person* person) const {
 const string& Container::getName() const {
     return name;
 }
+
+list<Person*>& Container::getPeople() {
+    return people;
+}

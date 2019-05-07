@@ -19,8 +19,6 @@ private:
 public:
     Container(const std::string& name);
 
-    ~Container();
-
     virtual bool add(Person* person);
 
     void remove(Person* person);
@@ -28,6 +26,8 @@ public:
     bool contains(Person* person) const;
 
     const std::string& getName() const;
+
+    std::list<Person*>& getPeople();
 };
 
 
