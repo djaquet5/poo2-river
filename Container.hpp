@@ -13,19 +13,21 @@
 
 class Container {
 private:
-    std::string name;
-    std::list<Person&> people;
+    const std::string name;
+    std::list<Person*> people;
 
 public:
-    Container(std::string name);
+    Container(const std::string& name);
 
-    virtual bool add(Person& person);
+    ~Container();
 
-    bool remove(Person& person);
+    virtual bool add(Person* person);
 
-    bool contains(Person& person) const;
+    void remove(Person* person);
 
-    std::string getName() const;
+    bool contains(Person* person) const;
+
+    const std::string& getName() const;
 };
 
 

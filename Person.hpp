@@ -12,7 +12,7 @@ private:
     const std::string name; // const ?
 
 public:
-    Person(std::string& name); // ref or value ?
+    Person(const std::string& name); // ref or value ?
 
     const std::string& getName() const; // const string ?
 

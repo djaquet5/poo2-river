@@ -4,7 +4,7 @@
 
 #include "Person.hpp"
 
-Person::Person(std::string& name) : name(name){};
+Person::Person(const std::string& name) : name(name){};
 
 const std::string& Person::getName() const {
     return name;

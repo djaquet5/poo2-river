@@ -14,7 +14,7 @@ private:
 public:
     Boat(std::string name);
 
-    bool add(Person& person);
+    bool add(Person* person);
 
     Bank& getBank() const; // const ??
 

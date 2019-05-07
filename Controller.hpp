@@ -14,13 +14,15 @@
 class Controller {
 private:
     int turn;
-    std::list<Person> people;
+    std::list<Person*> people;
     Bank rightBank;
     Bank leftBank;
     Boat boat;
 
 public:
     Controller();
+
+    ~Controller();
 
     void showMenu() const;
 
