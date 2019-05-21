@@ -11,8 +11,12 @@
  -----------------------------------------------------------------------------------
 */
 
-#include <cstdio>
+#include "Controller.hpp"
+
+using namespace std;
 
 int main() {
-    printf("%s", "Hello World");
+    Controller control;
+
+    control.launch();
 }

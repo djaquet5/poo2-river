@@ -21,11 +21,26 @@
 
 class Controller {
 private:
-    int turn;
-    std::list<Person*> people;
-    Bank rightBank;
-    Bank leftBank;
-    Boat boat;
+    static const char PRINT = 'p';
+    static const char EMBARK = 'e';
+    static const char DISEMBARK = 'd';
+    static const char MOVE = 'm';
+    static const char RESET = 'r';
+    static const char QUIT = 'q';
+    static const char HELP = 'h';
+
+    const char LINE = '-';
+    const char RIVER = '=';
+
+    const size_t LINE_LENGTH = 57;
+
+    size_t turn;
+//    std::list<Person*> people;
+//    Bank rightBank;
+//    Bank leftBank;
+//    Boat boat;
+
+    void executeCommand(std::string input);
 
 public:
     Controller();
@@ -37,4 +52,6 @@ public:
     void display() const;
 
     void nextTurn();
+
+    void launch();
 };
