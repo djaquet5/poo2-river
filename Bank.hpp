@@ -1,9 +1,17 @@
-//
-// Created by jostoph on 5/7/19.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : Bank.hpp
+ Auteur(s)   : David Jaquet & Christoph Rueff
+ Date        : 21.05.2019
+ But         : Structure de la classe Bank
 
-#ifndef POO2_RIVER_BANK_HPP
-#define POO2_RIVER_BANK_HPP
+ Remarque(s) :
+
+ -----------------------------------------------------------------------------------
+*/
+
+#pragma once
 
 
 #include "Container.hpp"
@@ -12,6 +20,3 @@ class Bank : public Container {
 public:
     Bank(std::string name);
 };
-
-
-#endif //POO2_RIVER_BANK_HPP

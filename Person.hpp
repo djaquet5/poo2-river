@@ -1,9 +1,17 @@
-//
-// Created by jostoph on 5/7/19.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : Person.hpp
+ Auteur(s)   : David Jaquet & Christoph Rueff
+ Date        : 21.05.2019
+ But         : Structure de la classe Person
 
-#ifndef POO2_RIVER_PERSON_HPP
-#define POO2_RIVER_PERSON_HPP
+ Remarque(s) :
+
+ -----------------------------------------------------------------------------------
+*/
+
+#pragma once
 
 #include <string>
 
@@ -19,6 +27,3 @@ public:
     virtual bool canDrive() const = 0;
 
 };
-
-
-#endif //POO2_RIVER_PERSON_HPP

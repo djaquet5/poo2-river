@@ -1,9 +1,17 @@
-//
-// Created by jostoph on 5/7/19.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : Controller.hpp
+ Auteur(s)   : David Jaquet & Christoph Rueff
+ Date        : 21.05.2019
+ But         : Structure de la classe Controller
 
-#ifndef POO2_RIVER_CONTROLLER_HPP
-#define POO2_RIVER_CONTROLLER_HPP
+ Remarque(s) :
+
+ -----------------------------------------------------------------------------------
+*/
+
+#pragma once
 
 #include <list>
 
@@ -30,6 +38,3 @@ public:
 
     void nextTurn();
 };
-
-
-#endif //POO2_RIVER_CONTROLLER_HPP

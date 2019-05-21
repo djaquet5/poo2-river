@@ -1,9 +1,17 @@
-//
-// Created by jostoph on 5/7/19.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : Container.hpp
+ Auteur(s)   : David Jaquet & Christoph Rueff
+ Date        : 21.05.2019
+ But         : Structure de la classe Container
 
-#ifndef POO2_RIVER_CONTAINER_HPP
-#define POO2_RIVER_CONTAINER_HPP
+ Remarque(s) :
+
+ -----------------------------------------------------------------------------------
+*/
+
+#pragma once
 
 #include <string>
 #include <list>
@@ -29,6 +37,3 @@ public:
 
     std::list<Person*>& getPeople();
 };
-
-
-#endif //POO2_RIVER_CONTAINER_HPP

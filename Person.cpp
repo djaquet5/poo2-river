@@ -1,6 +1,15 @@
-//
-// Created by jostoph on 5/7/19.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : Person.cpp
+ Auteur(s)   : David Jaquet & Christoph Rueff
+ Date        : 21.05.2019
+ But         : Implémentation de la classe Person
+
+ Remarque(s) :
+
+ -----------------------------------------------------------------------------------
+*/
 
 #include "Person.hpp"
 
