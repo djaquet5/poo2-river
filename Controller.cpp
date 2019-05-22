@@ -218,6 +218,15 @@ void Controller::initialize() {
     peopleMap.at("julie")->addConstraint(constraints.at(4));
     peopleMap.at("jeanne")->addConstraint(constraints.at(4));
     peopleMap.at("voleur")->addConstraint(constraints.at(5));
+
+    leftBank->add(peopleMap.at("pere"));
+    leftBank->add(peopleMap.at("mere"));
+    leftBank->add(peopleMap.at("paul"));
+    leftBank->add(peopleMap.at("pierre"));
+    leftBank->add(peopleMap.at("julie"));
+    leftBank->add(peopleMap.at("jeanne"));
+    leftBank->add(peopleMap.at("policier"));
+    leftBank->add(peopleMap.at("voleur"));
 }
 
 void Controller::free() {
