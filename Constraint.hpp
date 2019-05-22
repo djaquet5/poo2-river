@@ -4,10 +4,20 @@
 
 #pragma once
 
-#include "Person.hpp"
 #include "Type.hpp"
 #include <list>
 
 class Constraint {
+private:
+    const Type& guardian;
+    std::list<Type> blacklist;
 
+public:
+    Constraint(const Type& guardian, std::list<Type>& blacklist);
+
+    Constraint(const Type& guardian, std::initializer_list<Type> blacklist);
+
+    const Type& getGuardian() const;
+
+    std::list<Type>& getBlacklist();
 };

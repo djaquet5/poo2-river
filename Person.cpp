@@ -25,12 +25,7 @@ const Type& Person::getType() const {
 }
 
 bool Person::isConstraintExist(const Constraint *constraint) const {
-    // TODO : fix, aucune idée de comment faire
-//    if(find(constraints.begin(), constraints.end(), constraint)) {
-//        return true;
-//    }
-
-    return false;
+    return find(constraints.begin(), constraints.end(), constraint) != constraints.end();
 }
 
 void Person::addConstraint(Constraint *constraint) {

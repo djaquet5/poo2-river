@@ -5,4 +5,3 @@
 #include "Policeman.hpp"
 
 Policeman::Policeman(const std::string &name): Driver(name, Type::Policeman) {}
-

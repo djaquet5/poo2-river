@@ -38,5 +38,4 @@ public:
     void addConstraint(Constraint *constraint);
 
     void removeConstraint(Constraint *constraint);
-
 };
