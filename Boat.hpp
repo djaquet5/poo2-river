@@ -56,4 +56,13 @@ public:
      * @return  Nombre de personne sur le bateau
      */
     size_t getNbPeople() const;
+
+    /**
+     * Surcharge de l'opérateur de flux de sortie
+     * @param os    Flux de sortie
+     * @param boat  Bateau à afficher
+     *
+     * @return      Référence sur le flux de sortie
+     */
+    friend std::ostream& operator << (std::ostream& os, const Boat& boat);
 };
