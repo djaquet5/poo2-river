@@ -7,8 +7,6 @@
 #include "Driver.hpp"
 
 class Father : public Driver {
-private:
-
 public:
     Father(const std::string& name);
 };

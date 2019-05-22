@@ -7,8 +7,6 @@
 #include "Driver.hpp"
 
 class Mother : public Driver {
-private:
-
 public:
     Mother(const std::string& name);
 };
