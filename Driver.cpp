@@ -5,7 +5,7 @@
 
 #include "Driver.hpp"
 
-Driver::Driver(const std::string& name): Person::Person(name) {}
+Driver::Driver(const std::string& name, const Type& type): Person::Person(name, type) {}
 
 bool Driver::canDrive() {
     return true;
