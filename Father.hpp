@@ -4,16 +4,11 @@
 
 #pragma once
 
-#include <list>
+#include "Driver.hpp"
 
-#include "Parent.hpp"
-#include "Mother.hpp"
-
-class Father : public Parent {
+class Father : public Driver {
 private:
-    Mother& wife;
-public:
-    Father(const std::string& name, const std::list<Child*>& children, Mother& wife);
 
-    const std::list<Child*>& getChildren();
+public:
+    Father(const std::string& name);
 };
