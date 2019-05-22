@@ -3,3 +3,10 @@
 //
 
 #pragma once
+
+#include "Driver.hpp"
+
+class Policeman : public Driver {
+public:
+    Policeman(const std::string& name);
+};
