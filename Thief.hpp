@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "NonDriver.hpp";
+#include "NonDriver.hpp"
 
 class Thief : public NonDriver {
 public:

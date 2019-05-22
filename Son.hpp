@@ -4,7 +4,7 @@
 
 #pragma once
 
-#include "NonDriver.hpp";
+#include "NonDriver.hpp"
 
 class Son : public NonDriver {
 public:
