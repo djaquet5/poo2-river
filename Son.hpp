@@ -1,6 +1,15 @@
-//
-// Created by christoph on 21.05.19.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : Son.hpp
+ Auteur(s)   : David Jaquet & Christoph Rueff
+ Date        : 21.05.2019
+ But         : Structure de la classe Son
+
+ Remarque(s) :
+
+ -----------------------------------------------------------------------------------
+*/
 
 #pragma once
 
@@ -8,5 +17,11 @@
 
 class Son : public NonDriver {
 public:
+
+    /**
+     * Constructeur
+     *
+     * @param name  Nom du fils
+     */
     Son(const std::string& name);
 };

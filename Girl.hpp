@@ -1,6 +1,15 @@
-//
-// Created by christoph on 21.05.19.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : Girl.hpp
+ Auteur(s)   : David Jaquet & Christoph Rueff
+ Date        : 21.05.2019
+ But         : Structure de la classe Girl
+
+ Remarque(s) :
+
+ -----------------------------------------------------------------------------------
+*/
 
 #pragma once
 
@@ -8,5 +17,11 @@
 
 class Girl : public NonDriver {
 public:
+
+    /**
+     * Constructeur
+     *
+     * @param name  Nom de la fille
+     */
     Girl(const std::string& name);
 };

@@ -1,6 +1,15 @@
-//
-// Created by christoph on 22.05.19.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : Thief.cpp
+ Auteur(s)   : David Jaquet & Christoph Rueff
+ Date        : 21.05.2019
+ But         : Implémentation de la classe Thief
+
+ Remarque(s) :
+
+ -----------------------------------------------------------------------------------
+*/
 
 #include "Thief.hpp"
 
