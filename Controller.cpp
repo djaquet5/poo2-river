@@ -186,7 +186,35 @@ void Controller::initialize() {
     peopleMap.insert({"policier", new Policeman("policier") });
     peopleMap.insert({"voleur", new Thief("voleur") });
 
-    // TODO set and add constraints - I M ON IT
+
+    // create constraints
+    constraints.push_back(new Constraint(MOTHER, {GIRL})); // 0
+    constraints.push_back(new Constraint(FATHER, {SON})); // 1
+    constraints.push_back(new Constraint(MOTHER, {FATHER})); // 2
+    constraints.push_back(new Constraint(FATHER, {MOTHER})); // 3
+    constraints.push_back(new Constraint(POLICEMAN, {THIEF})); // 4
+    constraints.push_back(new Constraint(POLICEMAN, {MOTHER, FATHER, GIRL, SON})); // 5
+
+    // add constraints
+
+    // can't have father with girl wihout mother
+    peopleMap.at("pere")->addConstraint(constraints.at(0));
+    peopleMap.at("julie")->addConstraint(constraints.at(2));
+    peopleMap.at("jeanne")->addConstraint(constraints.at(2));
+
+    // can't have mother with son without father
+    peopleMap.at("mere")->addConstraint(constraints.at(1));
+    peopleMap.at("paul")->addConstraint(constraints.at(3));
+    peopleMap.at("pierre")->addConstraint(constraints.at(3));
+
+    // can't have family with thief without policeman
+    peopleMap.at("pere")->addConstraint(constraints.at(4));
+    peopleMap.at("mere")->addConstraint(constraints.at(4));
+    peopleMap.at("paul")->addConstraint(constraints.at(4));
+    peopleMap.at("pierre")->addConstraint(constraints.at(4));
+    peopleMap.at("julie")->addConstraint(constraints.at(4));
+    peopleMap.at("jeanne")->addConstraint(constraints.at(4));
+    peopleMap.at("voleur")->addConstraint(constraints.at(5));
 }
 
 void Controller::free() {
@@ -199,6 +227,8 @@ void Controller::free() {
         delete it.second;
     }
 
-    // TODO delete constraints - I M ON IT
-
+    // delete constraints
+    for (auto it : constraints) {
+        delete it;
+    }
 }

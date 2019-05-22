@@ -13,8 +13,8 @@
 
 #pragma once
 
-#include <list>
 #include <map>
+#include <vector>
 
 #include "Person.hpp"
 #include "Bank.hpp"
@@ -37,6 +37,7 @@ private:
 
     size_t turn;
     std::map<std::string, Person*> peopleMap;
+    std::vector<Constraint*> constraints;
     Bank *rightBank;
     Bank *leftBank;
     Boat *boat;
