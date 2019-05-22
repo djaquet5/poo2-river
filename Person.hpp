@@ -14,15 +14,19 @@
 #pragma once
 
 #include <string>
+#include "Type.hpp"
 
 class Person {
 private:
     const std::string name; // const ?
+    Type type;
 
 public:
-    Person(const std::string& name); // ref or value ?
+    Person(const std::string& name, const Type& type); // ref or value ?
 
     const std::string& getName() const; // const string ?
+
+    const Type& getType() const;
 
     virtual bool canDrive() const = 0;
 
