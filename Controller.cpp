@@ -47,15 +47,18 @@ void Controller::launch() {
 }
 
 void Controller::display() const {
-    displayLine(LINE, LINE_LENGTH);
-    cout << "Gauche: pere mere paul pierre julie jeann policier voleur" << endl;
-    displayLine(LINE, LINE_LENGTH);
-    cout << "Bateau: " << endl;
-    displayLine(RIVER, LINE_LENGTH);
-    cout << endl;
-    displayLine(LINE, LINE_LENGTH);
-    cout << "Droite: " << endl;
-    displayLine(LINE, LINE_LENGTH);
+    cout << *leftBank << endl;
+
+    if(boat->getBank() == leftBank) {
+        cout << *boat << endl;
+        cout << makeLine('=') << endl << endl;
+    } else {
+        cout << endl << makeLine('=') << endl;
+        cout << *boat << endl;
+    }
+
+
+    cout << *rightBank << endl;
     cout << endl;
 }
 

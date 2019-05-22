@@ -11,6 +11,8 @@
  -----------------------------------------------------------------------------------
 */
 
+#include <iostream>
+
 #include "Boat.hpp"
 
 using namespace std;
@@ -31,4 +33,16 @@ size_t Boat::getCapacityMax() const {
 
 size_t Boat::getNbPeople() const {
     return getPeople().size();
+}
+
+ostream& operator << (ostream& os, const Boat& boat) {
+    os << boat.getName() << ": < ";
+
+    for(Person *p : boat.getPeople()) {
+        os << p->getName() << " ";
+    }
+
+    os << ">";
+
+    return os;
 }

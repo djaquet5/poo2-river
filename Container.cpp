@@ -12,7 +12,10 @@
 */
 
 #include <algorithm>
+#include <iostream>
+
 #include "Container.hpp"
+#include "utils.h"
 
 using namespace std;
 
@@ -41,4 +44,17 @@ const string& Container::getName() const {
 
 const list<Person*>& Container::getPeople() const {
     return people;
+}
+
+ostream& operator << (ostream& os, const Container& container) {
+    os << makeLine('-') << endl;
+    os << container.name << ": ";
+
+    for (Person *p : container.people) {
+        os << p->getName() << " ";
+    }
+
+    os << endl << makeLine('-');
+
+    return os;
 }

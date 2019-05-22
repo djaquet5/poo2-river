@@ -67,4 +67,13 @@ public:
      * @return          Liste des personnes dans le container
      */
     const std::list<Person*>& getPeople() const;
+
+    /**
+     * Surcharge de l'opérateur de flux de sortie
+     * @param os    Flux de sortie
+     * @param boat  Container à afficher
+     *
+     * @return      Référence sur le flux de sortie
+     */
+    friend std::ostream& operator << (std::ostream& os, const Container& container);
 };

@@ -4,12 +4,6 @@
 
 #pragma once
 
-#include <iostream>
+#include <string>
 
-void displayLine(char c, size_t nb) {
-    for(size_t i = 0; i < nb; i++) {
-        std::cout << c;
-    }
-
-    std::cout << std::endl;
-}
+std::string makeLine(char c);
