@@ -80,4 +80,11 @@ public:
      * @param constraint    Contrainte à supprimer
      */
     void removeConstraint(Constraint *constraint);
+
+    /**
+     * Retourne la liste des contraintes
+     *
+     * @return      list de Constraint*
+     */
+    std::list<Constraint*> getConstraints() const;
 };

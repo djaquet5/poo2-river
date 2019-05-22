@@ -13,6 +13,7 @@
 
 #include <iostream>
 #include <iomanip>
+#include <algorithm>
 
 #include "Controller.hpp"
 #include "utils.h"
@@ -70,7 +71,6 @@ void Controller::nextTurn() {
 }
 
 void Controller::executeCommand(string input) {
-    // TODO : Check inputs ?
     char c = input[0];
     string person;
 
@@ -81,24 +81,24 @@ void Controller::executeCommand(string input) {
 
         case EMBARK:
             cout << "embark" << endl;
-            // TODO : get nom de la personne
-//            embark(person);
+            person = input.substr(2);
+            embark(person);
             break;
 
         case DISEMBARK:
             cout << "disembark" << endl;
-            // TODO : get nom de la personne
-//            disembark(person);
+            person = input.substr(2);
+            disembark(person);
             break;
 
         case MOVE:
             cout << "move" << endl;
-//            move();
+            move();
             break;
 
         case RESET:
             cout << "reset" << endl;
-//            reset();
+            reset();
             break;
 
         case HELP:
@@ -120,7 +120,6 @@ Controller::~Controller() {
 }
 
 void Controller::move() {
-    // TODO : tester les contraintes
 
     // Il y a au moins 1 conducteur
     if (!isThereADriverOnBoat()) {
@@ -142,11 +141,17 @@ void Controller::embark(string person) {
         return;
     }
 
-    // TODO : Vérifier les contraintes avec les personnes restant sur lîle et allant sur le bateau
+    Person * p = peopleMap.at(person);
+
+    // TODO : tester si la personne peux aller dans le bateau
+    // TODO : tester si la personne peux quitter la rive
 }
 
 void Controller::disembark(string person) {
-    // TODO : vérifier les contraintes avec les personnes allant sur la rive (et checker sur les personnes restantes sur le bateau ?)
+
+    Person * p = peopleMap.at(person);
+
+    // TODO : tester si la personne peux aller sur la rive
 }
 
 void Controller::reset() {

@@ -45,3 +45,7 @@ void Person::removeConstraint(Constraint *constraint) {
 
     constraints.remove(constraint);
 }
+
+std::list<Constraint*> Person::getConstraints() const {
+    return constraints;
+}
