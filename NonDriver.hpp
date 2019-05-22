@@ -8,7 +8,7 @@
 
 class NonDriver : public Person {
 public:
-    NonDriver(const std::string& name);
+    NonDriver(const std::string& name, const Type& type);
 
     bool canDrive();
 };

@@ -2,7 +2,13 @@
 // Created by christoph on 21.05.19.
 //
 
-#ifndef POO2_RIVER_GIRL_HPP
-#define POO2_RIVER_GIRL_HPP
+#pragma once
 
-#endif //POO2_RIVER_GIRL_HPP
+#include "NonDriver.hpp"
+
+class Girl : public NonDriver {
+private:
+
+public:
+    Girl(const std::string& name);
+};

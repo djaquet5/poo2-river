@@ -4,7 +4,7 @@
 
 #include "NonDriver.hpp"
 
-NonDriver::NonDriver(const std::string& name): Person::Person(name) {}
+NonDriver::NonDriver(const std::string& name, const Type& type): Person::Person(name, type) {}
 
 bool NonDriver::canDrive() {
     return false;
