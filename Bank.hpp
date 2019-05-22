@@ -18,5 +18,11 @@
 
 class Bank : public Container {
 public:
+
+    /**
+     * Constructeur
+     *
+     * @param name  Nom de la rivière
+     */
     Bank(std::string name);
 };

@@ -21,7 +21,6 @@
 #include "Boat.hpp"
 
 class Controller {
-private:
     static const char PRINT = 'p';
     static const char EMBARK = 'e';
     static const char DISEMBARK = 'd';
@@ -41,34 +40,90 @@ private:
     Bank *leftBank;
     Boat *boat;
 
+    /**
+     * Execute la commande choisie voulue par l'utilisateur
+     *
+     * @param input     Commande voulue par l'utilisateur
+     */
     void executeCommand(std::string input);
 
+    /**
+     * Déplace le bateau d'unerive à l'autre
+     */
     void move();
 
+    /**
+     * Ajoute une personne dans le bateau
+     *
+     * @param person    Personne à ajouter dans le bateau
+     */
     void embark(std::string person);
 
+    /**
+     * Enlève une personne du bateau
+     *
+     * @param person    Personne à enlever du bateau
+     */
     void disembark(std::string person);
 
+    /**
+     * Affiche un message d'erreur
+     *
+     * @param message   Message d'erreur à afficher
+     */
     void displayErrorMessage(std::string message) const;
 
+    /**
+     * Vérifie si il y a une personne pouvant conduire le bateau dans le-dit bateau
+     *
+     * @return          True si un conducteur est dans le bateau, False sinon.
+     */
     bool isThereADriverOnBoat() const;
 
+    /**
+     * Ré-initialise le jeu
+     */
     void reset();
 
+    /**
+     * Initilalise le jeu
+     */
     void initialize();
 
+    /**
+     * Libère les différents pointeurs
+     */
     void free();
 
 public:
+
+    /**
+     * Constructeur
+     */
     Controller();
 
+    /**
+     * Destructeur
+     */
     ~Controller();
 
+    /**
+     * Affiche le menu
+     */
     void showMenu() const;
 
+    /**
+     * Affiche les rives et le bateau
+     */
     void display() const;
 
+    /**
+     * Gère les différents tours
+     */
     void nextTurn();
 
+    /**
+     * Démarre la partie
+     */
     void launch();
 };

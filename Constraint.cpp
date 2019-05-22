@@ -1,6 +1,15 @@
-//
-// Created by christoph on 22.05.19.
-//
+/*
+ -----------------------------------------------------------------------------------
+ Laboratoire : 04
+ Fichier     : Constraint.cpp
+ Auteur(s)   : David Jaquet & Christoph Rueff
+ Date        : 21.05.2019
+ But         : Implémentation des contraintes
+
+ Remarque(s) :
+
+ -----------------------------------------------------------------------------------
+*/
 
 #include "Constraint.hpp"
 
