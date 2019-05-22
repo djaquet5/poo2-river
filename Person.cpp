@@ -12,6 +12,7 @@
 */
 
 #include "Person.hpp"
+#include <algorithm>
 
 Person::Person(const std::string& name, const Type& type) : name(name), type(type) {};
 
@@ -21,4 +22,29 @@ const std::string& Person::getName() const {
 
 const Type& Person::getType() const {
     return type;
+}
+
+bool Person::isConstraintExist(const Constraint *constraint) const {
+    // TODO : fix, aucune idée de comment faire
+//    if(find(constraints.begin(), constraints.end(), constraint)) {
+//        return true;
+//    }
+
+    return false;
+}
+
+void Person::addConstraint(Constraint *constraint) {
+    if(isConstraintExist(constraint)) {
+        return;
+    }
+
+    constraints.push_back(constraint);
+}
+
+void Person::removeConstraint(Constraint *constraint) {
+    if(!isConstraintExist(constraint)) {
+        return;
+    }
+
+    constraints.remove(constraint);
 }

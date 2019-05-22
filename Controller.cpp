@@ -19,7 +19,9 @@
 
 using namespace std;
 
-Controller::Controller() : turn(0) {}
+Controller::Controller() {
+    initialize();
+}
 
 void Controller::showMenu() const {
     cout << left << setw(7) << PRINT << ": afficher" << endl;
@@ -64,6 +66,8 @@ void Controller::nextTurn() {
 void Controller::executeCommand(string input) {
     // TODO : Check inputs ?
     char c = input[0];
+    string person;
+
     switch(c) {
         case PRINT:
             // Ne fais rien, on affiche après le switch
@@ -71,24 +75,24 @@ void Controller::executeCommand(string input) {
 
         case EMBARK:
             cout << "embark" << endl;
+            // TODO : get nom de la personne
+//            embark(person);
             break;
 
         case DISEMBARK:
             cout << "disembark" << endl;
+            // TODO : get nom de la personne
+//            disembark(person);
             break;
 
         case MOVE:
             cout << "move" << endl;
-
-//            if(boat.getBank() == *leftBank) {
-//                boat.setBank(rightBank);
-//            } else {
-//                boat.setBank(leftBank);
-//            }
+//            move();
             break;
 
         case RESET:
             cout << "reset" << endl;
+//            reset();
             break;
 
         case HELP:
@@ -102,8 +106,75 @@ void Controller::executeCommand(string input) {
             cout << "Commande non reconnue" << endl;
     }
 
-
     display();
 }
 
-Controller::~Controller() {}
+Controller::~Controller() {
+    free();
+}
+
+void Controller::move() {
+    // TODO : tester les contraintes
+
+    // Il y a au moins 1 conducteur
+    if (!isThereADriverOnBoat()) {
+        displayErrorMessage("Il faut au moins un conducteur");
+        return;
+    }
+
+    if (boat->getBank() == rightBank) {
+        boat->move(leftBank);
+    } else {
+        boat->move(rightBank);
+    }
+}
+
+void Controller::embark(string person) {
+    // On ne surcharge pas le bateau
+    if(boat->getNbPeople() == boat->getCapacityMax()) {
+        displayErrorMessage("Le bateau ne peut avoir plus de personne a son bord.");
+        return;
+    }
+
+    // TODO : Vérifier les contraintes avec les personnes restant sur lîle et allant sur le bateau (et checker sur les personnes restantes sur le bateau ?)
+}
+
+void Controller::disembark(string person) {
+    // TODO : vérifier les contraintes avec les personnes allant sur la rive (et checker sur les personnes restantes sur le bateau ?)
+}
+
+void Controller::reset() {
+    free();
+    initialize();
+}
+
+void Controller::displayErrorMessage(std::string message) const {
+    cout << "### " << message << endl;
+}
+
+bool Controller::isThereADriverOnBoat() const {
+    // Il y a au moins 1 conducteur
+    for (Person *p : boat->getPeople()) {
+        if (p->canDrive()) {
+            return true;
+        }
+    }
+
+    return false;
+}
+
+void Controller::initialize() {
+    rightBank = new Bank("Droite");
+    leftBank = new Bank("Gauche");
+    boat = new Boat(leftBank);
+
+    turn = 0;
+
+    // TODO init liste de people
+}
+
+void Controller::free() {
+    delete rightBank;
+    delete leftBank;
+    delete boat;
+}

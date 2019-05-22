@@ -39,6 +39,6 @@ const string& Container::getName() const {
     return name;
 }
 
-list<Person*>& Container::getPeople() {
+const list<Person*>& Container::getPeople() const {
     return people;
 }

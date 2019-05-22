@@ -35,5 +35,5 @@ public:
 
     const std::string& getName() const;
 
-    std::list<Person*>& getPeople();
+    const std::list<Person*>& getPeople() const;
 };

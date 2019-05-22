@@ -19,10 +19,15 @@
 class Boat : public Container {
 private:
     Bank* currentBank;
+    const size_t CAPACITY_MAX = 2;
 public:
     Boat(Bank* currentBank);
 
     Bank* getBank() const; // const ??
 
     void move(Bank* bank);
+
+    size_t getCapacityMax() const;
+
+    size_t getNbPeople() const;
 };

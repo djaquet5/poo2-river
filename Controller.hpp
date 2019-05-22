@@ -35,12 +35,28 @@ private:
     const size_t LINE_LENGTH = 57;
 
     size_t turn;
-//    std::list<Person*> people;
-//    Bank rightBank;
-//    Bank leftBank;
-//    Boat boat;
+    std::list<Person*> people;
+    Bank *rightBank;
+    Bank *leftBank;
+    Boat *boat;
 
     void executeCommand(std::string input);
+
+    void move();
+
+    void embark(std::string person);
+
+    void disembark(std::string person);
+
+    void displayErrorMessage(std::string message) const;
+
+    bool isThereADriverOnBoat() const;
+
+    void reset();
+
+    void initialize();
+
+    void free();
 
 public:
     Controller();

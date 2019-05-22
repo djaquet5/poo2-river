@@ -15,7 +15,7 @@
 
 using namespace std;
 
-Boat::Boat(Bank* bank) : Container("boat"), currentBank(bank) {}
+Boat::Boat(Bank* bank) : Container("Bateau"), currentBank(bank) {}
 
 Bank* Boat::getBank() const {
     return currentBank;
@@ -23,4 +23,12 @@ Bank* Boat::getBank() const {
 
 void Boat::move(Bank* bank) {
     currentBank = bank;
+}
+
+size_t Boat::getCapacityMax() const {
+    return CAPACITY_MAX;
+}
+
+size_t Boat::getNbPeople() const {
+    return getPeople().size();
 }
