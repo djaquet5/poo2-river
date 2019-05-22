@@ -22,8 +22,6 @@ private:
 public:
     Boat(Bank* currentBank);
 
-    bool add(Person* person) override;
-
     Bank* getBank() const; // const ??
 
     void move(Bank* bank);
