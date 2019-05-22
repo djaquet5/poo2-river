@@ -16,6 +16,8 @@
 
 Person::Person(const std::string& name, const Type& type) : name(name), type(type) {};
 
+Person::~Person() {}
+
 const std::string& Person::getName() const {
     return name;
 }

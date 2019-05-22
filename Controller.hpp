@@ -14,6 +14,7 @@
 #pragma once
 
 #include <list>
+#include <map>
 
 #include "Person.hpp"
 #include "Bank.hpp"
@@ -35,7 +36,7 @@ private:
     const size_t LINE_LENGTH = 57;
 
     size_t turn;
-    std::list<Person*> people;
+    std::map<std::string, Person*> peopleMap;
     Bank *rightBank;
     Bank *leftBank;
     Boat *boat;

@@ -4,4 +4,4 @@
 
 #include "Mother.hpp"
 
-Mother::Mother(const std::string &name): Driver(name, Type::Mother) {}
+Mother::Mother(const std::string &name): Driver(name, Type::MOTHER) {}

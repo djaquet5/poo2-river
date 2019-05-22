@@ -8,5 +8,5 @@
 
 class Father : public Driver {
 public:
-    Father(const std::string& name);
+    explicit Father(const std::string& name);
 };

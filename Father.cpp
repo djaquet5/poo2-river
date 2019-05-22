@@ -4,4 +4,4 @@
 
 #include "Father.hpp"
 
-Father::Father(const std::string &name): Driver(name, Type::Father) {}
+Father::Father(const std::string &name): Driver(name, Type::FATHER) {}

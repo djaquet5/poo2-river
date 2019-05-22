@@ -4,4 +4,4 @@
 
 #include "Son.hpp"
 
-Son::Son(const std::string& name) : NonDriver(name, Type::Thief) {}
+Son::Son(const std::string& name) : NonDriver(name, Type::SON) {}

@@ -16,6 +16,12 @@
 
 #include "Controller.hpp"
 #include "utils.h"
+#include "Son.hpp"
+#include "Father.hpp"
+#include "Mother.hpp"
+#include "Girl.hpp"
+#include "Policeman.hpp"
+#include "Thief.hpp"
 
 using namespace std;
 
@@ -136,7 +142,7 @@ void Controller::embark(string person) {
         return;
     }
 
-    // TODO : Vérifier les contraintes avec les personnes restant sur lîle et allant sur le bateau (et checker sur les personnes restantes sur le bateau ?)
+    // TODO : Vérifier les contraintes avec les personnes restant sur lîle et allant sur le bateau
 }
 
 void Controller::disembark(string person) {
@@ -170,11 +176,29 @@ void Controller::initialize() {
 
     turn = 0;
 
-    // TODO init liste de people
+    // fill people map
+    peopleMap.insert({"pere", new Father("pere") });
+    peopleMap.insert({"mere", new Mother("mere") });
+    peopleMap.insert({"paul", new Son("paul") });
+    peopleMap.insert({"pierre", new Son("pierre") });
+    peopleMap.insert({"julie", new Girl("julie") });
+    peopleMap.insert({"jeanne", new Girl("jeanne") });
+    peopleMap.insert({"policier", new Policeman("policier") });
+    peopleMap.insert({"voleur", new Thief("voleur") });
+
+    // TODO set and add constraints - I M ON IT
 }
 
 void Controller::free() {
     delete rightBank;
     delete leftBank;
     delete boat;
+
+    // delete people
+    for (auto it : peopleMap) {
+        delete it.second;
+    }
+
+    // TODO delete constraints - I M ON IT
+
 }

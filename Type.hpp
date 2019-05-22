@@ -4,4 +4,4 @@
 
 #pragma once
 
-enum Type {Thief, Son, Girl, Policeman, Father, Mother};
+enum Type {THIEF, SON, GIRL, POLICEMAN, FATHER, MOTHER};

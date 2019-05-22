@@ -6,6 +6,6 @@
 
 NonDriver::NonDriver(const std::string& name, const Type& type): Person::Person(name, type) {}
 
-bool NonDriver::canDrive() {
+bool NonDriver::canDrive() const {
     return false;
 }

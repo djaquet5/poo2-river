@@ -4,4 +4,4 @@
 
 #include "Girl.hpp"
 
-Girl::Girl(const std::string& name) : NonDriver(name, Type::Girl) {}
+Girl::Girl(const std::string& name) : NonDriver(name, Type::GIRL) {}

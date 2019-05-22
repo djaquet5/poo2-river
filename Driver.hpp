@@ -10,5 +10,5 @@ class Driver : public Person {
 public:
     Driver(const std::string& name, const Type& type);
 
-    bool canDrive();
+    bool canDrive() const override;
 };

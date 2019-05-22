@@ -29,6 +29,8 @@ private:
 public:
     Person(const std::string& name, const Type& type); // ref or value ?
 
+    virtual ~Person();
+
     const std::string& getName() const; // const string ?
 
     const Type& getType() const;

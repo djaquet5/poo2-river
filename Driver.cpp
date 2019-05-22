@@ -7,6 +7,6 @@
 
 Driver::Driver(const std::string& name, const Type& type): Person::Person(name, type) {}
 
-bool Driver::canDrive() {
+bool Driver::canDrive() const {
     return true;
 }

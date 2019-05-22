@@ -4,4 +4,4 @@
 
 #include "Thief.hpp"
 
-Thief::Thief(const std::string& name) : NonDriver(name, Type::Thief) {}
+Thief::Thief(const std::string& name) : NonDriver(name, Type::THIEF) {}
