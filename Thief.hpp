@@ -3,3 +3,10 @@
 //
 
 #pragma once
+
+#include "NonDriver.hpp";
+
+class Thief : public NonDriver {
+public:
+    Thief(const std::string& name);
+};

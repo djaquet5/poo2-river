@@ -7,8 +7,6 @@
 #include "NonDriver.hpp"
 
 class Girl : public NonDriver {
-private:
-
 public:
     Girl(const std::string& name);
 };
