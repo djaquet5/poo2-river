@@ -26,7 +26,7 @@
 
 using namespace std;
 
-Controller::Controller() {
+Controller::Controller() : turn(0) {
     initialize();
 }
 
@@ -83,24 +83,20 @@ void Controller::executeCommand(string input) {
             break;
 
         case EMBARK:
-            cout << "embark" << endl;
             person = input.substr(2);
             embark(person);
             break;
 
         case DISEMBARK:
-            cout << "disembark" << endl;
             person = input.substr(2);
             disembark(person);
             break;
 
         case MOVE:
-            cout << "move" << endl;
             move();
             break;
 
         case RESET:
-            cout << "reset" << endl;
             reset();
             break;
 
@@ -144,22 +140,69 @@ void Controller::embark(string person) {
         return;
     }
 
-    Person * p = peopleMap.at(person);
+    Person *p = peopleMap.at(person);
+    std::list<Constraint*> constraints;
+    std::list<Type> blackList;
+    std::list<Person*> bankedPeople;
 
     // TODO : tester si la personne peux aller dans le bateau
+    if(!boat->getPeople().empty()) {
+        for(Constraint *constraint : boat->getPeople().front()->getConstraints()) {
+            blackList = constraint->getBlacklist();
+
+            if(find(blackList.begin(), blackList.end(), p->getType()) != blackList.end()) {
+                // TODO : mettre un message correcte
+                displayErrorMessage("Tu rentres pas, tu as pas les bonnes chaussures");
+                return;
+            }
+        }
+    }
+
+    boat->getBank()->remove(p);
     // TODO : tester si la personne peux quitter la rive
+//    bankedPeople = boat->getBank()->getPeople();
+//    for(Person *bankedPerson : bankedPeople) {
+//        for(Constraint *constraint : bankedPerson->getConstraints()) {
+//            if(p->getType() == constraint->getGuardian() &&
+//               find(bankedPeople.begin(), bankedPeople.end(), p->getType()) != bankedPeople.end()) {
+//                displayErrorMessage("C'est pas mal la merde la");
+//                boat->getBank()->add(p);
+//                return;
+//            }
+//        }
+//    }
+
+    boat->add(p);
 }
 
 void Controller::disembark(string person) {
+    Person *p = peopleMap.at(person);
 
-    Person * p = peopleMap.at(person);
+    std::list<Person *> bankedPeople = boat->getBank()->getPeople();
+    std::list<Type> blackList;
 
     // TODO : tester si la personne peux aller sur la rive
+//    for(Person *bankedPerson : bankedPeople) {
+//        for(Constraint *constraint : bankedPerson->getConstraints()) {
+//            blackList = constraint->getBlacklist();
+//
+//            if(find(blackList.begin(), blackList.end(), p->getType()) != blackList.end() &&
+//               find(bankedPeople.begin(), bankedPeople.end(), constraint->getGuardian()) != bankedPeople.end()) {
+//                displayErrorMessage("C'est la merde");
+//                return;
+//            }
+//        }
+//    }
+
+    boat->remove(p);
+    boat->getBank()->add(p);
 }
 
 void Controller::reset() {
     free();
+    peopleMap.clear();
     initialize();
+    turn = -1;  // TODO: Pour recommencer au tour 0 ?
 }
 
 void Controller::displayErrorMessage(std::string message) const {
@@ -181,8 +224,6 @@ void Controller::initialize() {
     rightBank = new Bank("Droite");
     leftBank = new Bank("Gauche");
     boat = new Boat(leftBank);
-
-    turn = 0;
 
     // fill people map
     peopleMap.insert({"pere", new Father("pere") });

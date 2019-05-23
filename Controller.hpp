@@ -29,12 +29,7 @@ class Controller {
     static const char QUIT = 'q';
     static const char HELP = 'h';
 
-    const char LINE = '-';
-    const char RIVER = '=';
-
-    const size_t LINE_LENGTH = 57;
-
-    size_t turn;
+    int turn;
     std::map<std::string, Person*> peopleMap;
     std::vector<Constraint*> constraints;
     Bank *rightBank;
