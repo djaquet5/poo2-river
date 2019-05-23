@@ -148,26 +148,31 @@ void Controller::embark(string person) {
     if(!boat->getPeople().empty()) {
         for(Constraint *constraint : boat->getPeople().front()->getConstraints()) {
             blackList = constraint->getBlacklist();
-            std::list<Type>::iterator it = find(blackList.begin(), blackList.end(), p->getType());
+            auto it = find(blackList.begin(), blackList.end(), p->getType());
 
             if(it != blackList.end()) {
-                displayErrorMessage(p->getType().getName() + " avec " + it->getName() + " sans " + constraint->getGuardian().getName());
+                displayErrorMessage(p->getType().getName() + " avec " + boat->getPeople().front()->getType().getName() + " sans " + constraint->getGuardian().getName());
                 return;
             }
         }
     }
 
     boat->getBank()->remove(p);
-    // TODO : tester si la personne peux quitter la rive
     bankedPeople = boat->getBank()->getPeople();
     for(Person *bankedPerson : bankedPeople) {
         for(Constraint *constraint : bankedPerson->getConstraints()) {
             if(p->getType() == constraint->getGuardian()) {
-//                find(bankedPeople..begin(), bankedPeople.end(), p->getType()) != bankedPeople.end());
-//                    displayErrorMessage("C'est pas mal la merde la");
-//                    boat->getBank()->add(p);
-//                    return;
-
+                for(Person *problem : bankedPeople) {
+                    if(bankedPerson != problem) {
+                        for(Type type : constraint->getBlacklist()) {
+                            if(problem->getType() == type) {
+                                displayErrorMessage(type.getName() + " avec " + bankedPerson->getType().getName() + " sans " + p->getType().getName());
+                                boat->getBank()->add(p);
+                                return;
+                            }
+                        }
+                    }
+                }
             }
         }
     }
@@ -180,19 +185,24 @@ void Controller::disembark(string person) {
 
     std::list<Person *> bankedPeople = boat->getBank()->getPeople();
     std::list<Type> blackList;
+    std::list<Type> bankedPeopleTypes;
 
-    // TODO : tester si la personne peux aller sur la rive
-//    for(Person *bankedPerson : bankedPeople) {
-//        for(Constraint *constraint : bankedPerson->getConstraints()) {
-//            blackList = constraint->getBlacklist();
-//
-//            if(find(blackList.begin(), blackList.end(), p->getType()) != blackList.end() &&
-//               find(bankedPeople.begin(), bankedPeople.end(), constraint->getGuardian()) != bankedPeople.end()) {
-//                displayErrorMessage("C'est la merde");
-//                return;
-//            }
-//        }
-//    }
+    for(Person* bankedPerson : bankedPeople) {
+        bankedPeopleTypes.push_back(bankedPerson->getType());
+    }
+
+    for(Constraint *constraint : p->getConstraints()) {
+        blackList = constraint->getBlacklist();
+
+        for(Type t : blackList) {
+            if(find(bankedPeopleTypes.begin(), bankedPeopleTypes.end(), t) != bankedPeopleTypes.end()) {
+                if(find(bankedPeopleTypes.begin(), bankedPeopleTypes.end(), constraint->getGuardian()) == bankedPeopleTypes.end()) {
+                    displayErrorMessage(p->getType().getName() + " avec " + t.getName() + " sans " + constraint->getGuardian().getName());
+                    return;
+                }
+            }
+        }
+    }
 
     boat->remove(p);
     boat->getBank()->add(p);
