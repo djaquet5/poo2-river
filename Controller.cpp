@@ -145,7 +145,6 @@ void Controller::embark(string person) {
     std::list<Type> blackList;
     std::list<Person*> bankedPeople;
 
-    // TODO : tester si la personne peux aller dans le bateau
     if(!boat->getPeople().empty()) {
         for(Constraint *constraint : boat->getPeople().front()->getConstraints()) {
             blackList = constraint->getBlacklist();
@@ -237,12 +236,12 @@ void Controller::initialize() {
 
 
     // create constraints
-    constraints.push_back(new Constraint(MOTHER, {GIRL})); // 0
-    constraints.push_back(new Constraint(FATHER, {SON})); // 1
-    constraints.push_back(new Constraint(MOTHER, {FATHER})); // 2
-    constraints.push_back(new Constraint(FATHER, {MOTHER})); // 3
-    constraints.push_back(new Constraint(POLICEMAN, {THIEF})); // 4
-    constraints.push_back(new Constraint(POLICEMAN, {MOTHER, FATHER, GIRL, SON})); // 5
+    constraints.push_back(new Constraint(Type::MOTHER, {Type::GIRL})); // 0
+    constraints.push_back(new Constraint(Type::FATHER, {Type::SON})); // 1
+    constraints.push_back(new Constraint(Type::MOTHER, {Type::FATHER})); // 2
+    constraints.push_back(new Constraint(Type::FATHER, {Type::MOTHER})); // 3
+    constraints.push_back(new Constraint(Type::POLICEMAN, {Type::THIEF})); // 4
+    constraints.push_back(new Constraint(Type::POLICEMAN, {Type::MOTHER, Type::FATHER, Type::GIRL, Type::SON})); // 5
 
     // add constraints
 

@@ -13,4 +13,21 @@
 
 #pragma once
 
-enum Type {THIEF, SON, GIRL, POLICEMAN, FATHER, MOTHER};
+//enum Type {THIEF, SON, GIRL, POLICEMAN, FATHER, MOTHER};
+
+class Type {
+    Type(const char* name);
+
+    const char* name;
+    unsigned int index;
+
+    static unsigned int count;
+    static const Type* type[];
+
+public:
+    const char* getName() const;
+
+    static const Type THIEF, SON, GIRL, POLICEMAN, FATHER, MOTHER;
+
+    bool operator == (const Type& other) const;
+};
