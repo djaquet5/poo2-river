@@ -148,10 +148,10 @@ void Controller::embark(string person) {
     if(!boat->getPeople().empty()) {
         for(Constraint *constraint : boat->getPeople().front()->getConstraints()) {
             blackList = constraint->getBlacklist();
+            std::list<Type>::iterator it = find(blackList.begin(), blackList.end(), p->getType());
 
-            if(find(blackList.begin(), blackList.end(), p->getType()) != blackList.end()) {
-                // TODO : mettre un message correcte
-                displayErrorMessage("Tu rentres pas, tu as pas les bonnes chaussures");
+            if(it != blackList.end()) {
+                displayErrorMessage(p->getType().getName() + " avec " + it->getName() + " sans " + constraint->getGuardian().getName());
                 return;
             }
         }
@@ -159,17 +159,18 @@ void Controller::embark(string person) {
 
     boat->getBank()->remove(p);
     // TODO : tester si la personne peux quitter la rive
-//    bankedPeople = boat->getBank()->getPeople();
-//    for(Person *bankedPerson : bankedPeople) {
-//        for(Constraint *constraint : bankedPerson->getConstraints()) {
-//            if(p->getType() == constraint->getGuardian() &&
-//               find(bankedPeople.begin(), bankedPeople.end(), p->getType()) != bankedPeople.end()) {
-//                displayErrorMessage("C'est pas mal la merde la");
-//                boat->getBank()->add(p);
-//                return;
-//            }
-//        }
-//    }
+    bankedPeople = boat->getBank()->getPeople();
+    for(Person *bankedPerson : bankedPeople) {
+        for(Constraint *constraint : bankedPerson->getConstraints()) {
+            if(p->getType() == constraint->getGuardian()) {
+//                find(bankedPeople..begin(), bankedPeople.end(), p->getType()) != bankedPeople.end());
+//                    displayErrorMessage("C'est pas mal la merde la");
+//                    boat->getBank()->add(p);
+//                    return;
+
+            }
+        }
+    }
 
     boat->add(p);
 }

@@ -13,7 +13,7 @@ const Type Type::MOTHER("mere");
 
 Type::Type(const char* name) : name(name) {}
 
-const char* Type::getName() const {
+const std::string Type::getName() const {
     return name;
 }
 

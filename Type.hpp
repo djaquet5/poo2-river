@@ -13,6 +13,8 @@
 
 #pragma once
 
+#include <string>
+
 //enum Type {THIEF, SON, GIRL, POLICEMAN, FATHER, MOTHER};
 
 class Type {
@@ -25,7 +27,7 @@ class Type {
     static const Type* type[];
 
 public:
-    const char* getName() const;
+    const std::string getName() const;
 
     static const Type THIEF, SON, GIRL, POLICEMAN, FATHER, MOTHER;
 

@@ -12,5 +12,4 @@ Ce laboratoire est une version améliorée du jeu du loup, de la chèvre et du c
 
 ## Implémentation
 
-Pour approcher ce problème de manière OO, nous avons décidé d'implémenter les contraintes à l'intérieur des personnes afin de pouvoir simplement ajouter autant de contrainte que souhaité. Les contraintes se font par rapport au type de la personne et non de la personne afin de simplifier une contrainte du type : _Un père ne peut pas rester seul avec sa fille sans la mère_. La contrainte vérifiant le type, le père peut avoir plusieurs filles, nous n'avons besoin de la créer qu'une seule fois.
-
+Pour approcher ce problème de manière OO, nous avons décidé d'implémenter les contraintes à l'intérieur des personnes afin de pouvoir simplement ajouter autant de contraintes que souhaité. Les contraintes se font par rapport au type de la personne et non à la personne en tant que tel afin de simplifier une contrainte du type : _Un père ne peut pas rester seul avec sa fille sans la mère_. La contrainte vérifiant le type, le père peut avoir plusieurs filles, nous n'avons besoin de créer qu'une seule fois la contrainte.
